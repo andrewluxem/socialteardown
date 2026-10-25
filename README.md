@@ -54,6 +54,22 @@ Generic and ready: `ScoreBadge`, `Legend`, `Pips`, `SignupForm`, `SignupCard`, `
 The signup forms post to `PUBLIC_SIGNUP_ENDPOINT`. While it is unset they show "Signups open
 soon" and nothing is sent.
 
+## Watchlist waitlist
+
+`/watchlist/` collects waitlist signups for the paid plan. The price, the founding-rate note and
+the field labels are in `src/config/watchlist.ts`.
+
+The form posts to the `socialteardown-signup` Supabase edge function
+(`supabase/functions/socialteardown-signup/`), which writes `socialteardown_signups`
+(`supabase/migrations/`). Both live in the shared content-pipeline project
+(`fpqyuzkrshokqxtjtffi`), apart from Inbox Teardown's table, and every row has
+`list = 'social-watchlist'`. `PUBLIC_SIGNUP_ENDPOINT` is
+`https://fpqyuzkrshokqxtjtffi.supabase.co/functions/v1/socialteardown-signup`, and that origin is
+the one `form-action` allows in `vercel.json`.
+
+Deploy the function with `supabase functions deploy socialteardown-signup --no-verify-jwt` and
+apply migrations before any function change that needs them.
+
 ## Commands
 
 Requires Node 22+.

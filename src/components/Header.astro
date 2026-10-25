@@ -1,9 +1,11 @@
 ---
 import wordmark from '../assets/brand/wordmark-on-dark.svg';
 
-// Empty until the board's pages exist. The nav and the mobile menu render
-// only when there is something to list.
-const items: { href: string; label: string; match: (p: string) => boolean }[] = [];
+// The board's pages join the Watchlist here when they exist. The nav and the
+// mobile menu render only when there is something to list.
+const items: { href: string; label: string; match: (p: string) => boolean }[] = [
+  { href: '/watchlist/', label: 'Watchlist', match: (p: string) => p.startsWith('/watchlist/') },
+];
 const path = Astro.url.pathname;
 ---
 <header class="site-header">

@@ -99,10 +99,12 @@ main.wrap { padding-block: 40px 72px; flex: 1 0 auto; width: 100%; }
 .field { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
 .field label { flex-basis: 100%; font-family: var(--font-mono); font-size: var(--eyebrow); text-transform: uppercase; letter-spacing: var(--tracking); color: var(--muted); }
 .dark .field label { color: var(--on-dark-muted); }
-.field input[type='email'] {
+.field input[type='email'], .field input[type='text'] {
   flex: 1 1 200px; min-width: 0; min-height: var(--touch); padding: 8px 12px;
   border: 1px solid var(--muted); background: var(--surface); color: var(--ink);
 }
+/* Browser defaults miss AA (Firefox dims the text color to 0.54); this is 5.3:1 on --surface. */
+.field input::placeholder { color: #666B79; opacity: 1; }
 .form-status { margin-top: 10px; font-family: var(--font-mono); font-size: var(--text-sm); }
 .form-status:empty { display: none; }
 

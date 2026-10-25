@@ -1,0 +1,29 @@
+---
+import Base from '../layouts/Base.astro';
+import SignupForm from '../components/SignupForm.astro';
+import { WATCHLIST } from '../config/watchlist';
+---
+<Base title="Watchlist" description="Join the waitlist for the Social Teardown Watchlist.">
+  <div class="with-rail">
+    <div class="main">
+      <p class="eyebrow">Watchlist · Waitlist open</p>
+      <h1 class="display wl-h1">Watch the brands you compete with</h1>
+      <p class="lede wl-lede">The Watchlist is a paid plan that is not open yet. Join the waitlist to hear when it opens.</p>
+    </div>
+    <aside class="rail" aria-label="Join the waitlist">
+      <section class="card dark" aria-labelledby="price-heading">
+        <p class="eyebrow">{WATCHLIST.priceLabel}</p>
+        <p id="price-heading" class="price num">{WATCHLIST.price}</p>
+        <p class="price-note">{WATCHLIST.priceNote}</p>
+        <p class="muted">Join the waitlist and we will email you when the Watchlist opens.</p>
+        <SignupForm list="social-watchlist" button="Join the waitlist" />
+      </section>
+    </aside>
+  </div>
+</Base>
+<style>
+  .wl-h1 { margin-top: 12px; max-width: 14ch; }
+  .wl-lede { margin-top: 18px; }
+  .price { font-family: var(--font-mono); font-weight: 600; font-size: 2.5rem; line-height: 1.1; margin-top: 6px; }
+  .price-note { margin-top: 6px; font-size: var(--text-sm); color: var(--on-dark-muted); }
+</style>
