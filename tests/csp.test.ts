@@ -6,6 +6,8 @@ const ALERT = "'sha256-bhHHL3z2vDgxUt0W3dWQOrprscmda2Y5pLsLg4GF+pI='"; // alert(
 const page = (path: string, html: string) => ({ path, html });
 const vercelJson = readFileSync(new URL('../vercel.json', import.meta.url), 'utf8');
 const csp = cspFromVercelJson(vercelJson) ?? '';
+/** The Supabase project (content-pipeline) that runs the socialteardown-signup function the forms post to. */
+const SIGNUP_ORIGIN = 'https://fpqyuzkrshokqxtjtffi.supabase.co';
 
 describe('inline script hashes', () => {
   it('hashes inline scripts the browser runs, exactly as written', () => {
@@ -42,7 +44,7 @@ describe('vercel.json headers', () => {
     // No image host yet: the site's own Blob store is added here and in
     // vercel.json when it exists.
     expect(cspSources(csp, 'img-src')).toEqual(["'self'", 'data:']);
-    expect(cspSources(csp, 'form-action')).toEqual(["'self'", 'https://fpqyuzkrshokqxtjtffi.supabase.co']);
+    expect(cspSources(csp, 'form-action')).toEqual(["'self'", SIGNUP_ORIGIN]);
     expect(cspSources(csp, 'frame-ancestors')).toEqual(["'none'"]);
     expect(cspSources(csp, 'base-uri')).toEqual(["'self'"]);
     expect(cspSources(csp, 'object-src')).toEqual(["'none'"]);

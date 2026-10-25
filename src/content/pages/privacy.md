@@ -1,17 +1,28 @@
 ---
 title: "Privacy"
-description: "What Social Teardown collects when you sign up, who stores it, and how to unsubscribe or ask for deletion."
+description: "What Social Teardown collects when you join the Watchlist waitlist, who stores it, and how to be removed."
 ---
 
 ## What we collect
 
-When you sign up, the form sends two things: the email address you type in, and which list you joined (the launch email, the Watchlist waitlist, or the Black Friday tracker alert). There are no other fields to fill in. The form also has a hidden field that only spam bots fill in; it is empty when you submit.
+The only signup on this site is the Watchlist waitlist, on the [Watchlist page](/watchlist/). Its form sends:
+
+- the email address you type in (required)
+- your brand's Instagram handle or website, if you fill it in
+- up to five brands you want to watch, if you fill it in
+- which list you joined (the Watchlist waitlist)
+
+The form also has a hidden field that only spam bots fill in; it is empty when you submit.
 
 With your signup we also record the time you signed up and the page you signed up from (its path, without any query string). We do not store your IP address with your signup, and there is no confirmation email to click.
 
+## Why we collect it
+
+We use your email address to send you one email when the Watchlist opens, and nothing before that. The handle or website and the brand list are optional; they tell us which brands waitlist members want to follow.
+
 ## Who stores it
 
-Signups are stored by {emailProvider}, in a database table that only this site's signup service can read or write. See [Supabase's privacy policy](https://supabase.com/privacy).
+Signups are stored by {emailProvider}, in a database table that is not publicly readable and that only this site's signup service writes to. See [Supabase's privacy policy](https://supabase.com/privacy).
 
 ## Cookies
 
@@ -31,7 +42,7 @@ Vercel processes that request data, including your IP address, to serve the site
 
 ## Unsubscribe and deletion
 
-To unsubscribe or to have your address deleted, email {contactEmail}. We handle unsubscribe and deletion requests within 30 days.
+To leave the waitlist, or to have your signup deleted (your address and anything you added in the optional fields), email {contactEmail}. We handle these requests within 30 days.
 
 ## About the posts we score
 
@@ -43,4 +54,4 @@ Questions about this page: {contactEmail}.
 
 ## Effective date
 
-This policy takes effect on October 24, 2026.
+This policy takes effect on October 25, 2026.

@@ -15,6 +15,9 @@ export default defineConfig({
   // vercel.json still sets the headers.
   adapter: vercel(),
   trailingSlash: 'always',
+  // Straight quotes in markdown pages, as in every .astro page, and no
+  // -- or --- turned into dashes.
+  markdown: { smartypants: false },
   vite: {
     // OG image tooling runs only at build time; let Node load it as-is
     // (resvg ships a native addon and satori relies on CommonJS globals).

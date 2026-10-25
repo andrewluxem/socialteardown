@@ -10,6 +10,7 @@ const OUT = new URL('../docs/screenshots/', import.meta.url);
 const WIDTHS = [1280, 390];
 const PAGES = [
   ['home', '/'],
+  ['watchlist', '/watchlist/'],
   ['privacy', '/privacy/'],
   ['not-found', '/404.html'],
 ];
