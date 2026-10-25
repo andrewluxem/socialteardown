@@ -1,0 +1,45 @@
+---
+// Holding page until the first board ships. The board's components
+// (Scoreboard, ScoreBadge, Legend, Pips, SignupCard) are kept for it.
+import Base from '../layouts/Base.astro';
+
+const points = [
+  {
+    title: 'A daily board',
+    body: 'Yesterday\'s posts from a panel of retail brands, ranked by score and published every morning.',
+  },
+  {
+    title: 'A public rubric',
+    body: 'Eight dimensions, each scored 1 to 5, for a total out of 40. Every score comes with a written note.',
+  },
+  {
+    title: 'Craft, not reach',
+    body: 'Likes and views appear as context, never as part of the score. They measure audience size, not the post.',
+  },
+];
+---
+<Base>
+  <section class="soon" aria-labelledby="soon-heading">
+    <p class="eyebrow">Launching soon</p>
+    <h1 id="soon-heading" class="display">Yesterday's posts, scored</h1>
+    <p class="lede soon-lede">Social Teardown scores retail brands' public social posts on a public rubric and ranks them on one daily board. The first board is on its way.</p>
+  </section>
+
+  <ul class="soon-points" aria-label="What to expect">
+    {points.map((p) => (
+      <li class="card">
+        <h2 class="display soon-point">{p.title}</h2>
+        <p class="muted">{p.body}</p>
+      </li>
+    ))}
+  </ul>
+</Base>
+
+<style>
+  .soon { max-width: 880px; padding-block: 24px 8px; }
+  .soon h1 { margin-top: 12px; font-size: clamp(2.5rem, 1.2rem + 5.5vw, 5.75rem); }
+  .soon-lede { margin-top: 20px; }
+  .soon-points { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin-top: 48px; }
+  .soon-points .card { border-top: 6px solid var(--ink); }
+  .soon-point { font-size: 1.75rem; line-height: 1; }
+</style>
