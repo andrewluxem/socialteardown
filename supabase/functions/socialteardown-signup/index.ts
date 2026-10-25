@@ -136,6 +136,7 @@ Deno.serve(async (req) => {
     console.error('insert failed', err);
     return failed();
   }
-  console.log('signup stored', list);
+  // New or duplicate: the insert ignores duplicates, so this cannot tell them apart.
+  console.log('signup accepted', list);
   return redirect(signedUp, origin);
 });
